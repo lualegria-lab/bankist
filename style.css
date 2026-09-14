@@ -127,6 +127,7 @@ img {
   height: 9rem;
   width: 100%;
   padding: 0 6rem;
+  gap: 3rem;
   z-index: 100;
 }
 
@@ -174,6 +175,112 @@ img {
   color: inherit;
   background-color: var(--color-primary-darker);
   color: #333;
+}
+
+.client-access {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 23rem;
+}
+
+.client-login {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.client-login[hidden],
+.client-session[hidden],
+.section--client[hidden] {
+  display: none;
+}
+
+.client-login__input {
+  width: 8.5rem;
+  border: 1px solid #fff;
+  border-radius: 10rem;
+  padding: 0.6rem 1.2rem;
+  font: inherit;
+  font-size: 1.4rem;
+  color: inherit;
+  text-align: center;
+  transition: border 0.3s;
+}
+
+.client-login__input:focus {
+  border-color: #ccc;
+}
+
+.client-login__input::placeholder {
+  color: #999;
+}
+
+.client-login__btn,
+.client-session__logout {
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.client-login__btn {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.client-session {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  font-size: 1.4rem;
+}
+
+.client-session__welcome {
+  font-weight: 500;
+}
+
+.client-session__logout {
+  color: var(--color-primary-darker);
+}
+
+.client-login__btn:hover,
+.client-session__logout:hover {
+  color: #777;
+}
+
+.client-login__message {
+  min-height: 1.8rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--color-primary-darker);
+}
+
+.client-login__message--error {
+  color: var(--color-tertiary-darker);
+}
+
+.app-page {
+  min-height: 100vh;
+}
+
+.nav--app {
+  position: sticky;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.96);
+}
+
+.nav--app a {
+  line-height: 0;
+}
+
+.app-main .section--client {
+  min-height: calc(100vh - 9rem);
+  padding: 8rem 3rem 10rem;
+  border-top: none;
 }
 
 /* HEADER */
@@ -232,6 +339,241 @@ h4 {
   opacity: 0.7;
   transform: scale(1.07, 1.05) skewX(-15deg);
   background-image: var(--gradient-primary);
+}
+
+/* CLIENT DASHBOARD */
+.section--client {
+  background-color: #f3f3f3;
+}
+
+.bankapp {
+  max-width: 100rem;
+  margin: 0 auto;
+}
+
+.bankapp__balance {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.bankapp__balance-label {
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin-bottom: -0.2rem;
+}
+
+.bankapp__balance-date {
+  font-size: 1.4rem;
+  color: #888;
+}
+
+.bankapp__balance-value {
+  flex-shrink: 0;
+  font-size: 4.5rem;
+  font-weight: 400;
+  color: #444;
+}
+
+.bankapp__layout {
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+  grid-template-rows: repeat(3, 17rem);
+  gap: 2rem;
+}
+
+.bankapp__movements {
+  grid-row: 1 / span 3;
+  min-height: 30rem;
+  overflow: auto;
+  background-color: #fff;
+  border-radius: 0.8rem;
+}
+
+.bankapp__movement-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2.25rem 4rem;
+  border-bottom: 1px solid #eee;
+}
+
+.bankapp__movement-type {
+  flex-shrink: 0;
+  border-radius: 10rem;
+  padding: 0.2rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.bankapp__movement-type--deposit {
+  background-image: var(--gradient-primary);
+}
+
+.bankapp__movement-type--withdrawal {
+  background-image: linear-gradient(to top left, #e52a5a, #ff585f);
+}
+
+.bankapp__movement-date {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #666;
+  text-transform: uppercase;
+}
+
+.bankapp__movement-value {
+  margin-left: auto;
+  font-size: 1.7rem;
+  font-weight: 400;
+  color: #444;
+}
+
+.bankapp__operation {
+  border-radius: 0.8rem;
+  padding: 2.8rem 3.5rem;
+  color: #333;
+}
+
+.bankapp__operation--transfer {
+  background-image: var(--gradient-secondary);
+}
+
+.bankapp__operation--loan {
+  background-image: var(--gradient-primary);
+}
+
+.bankapp__operation--close {
+  background-image: linear-gradient(to top left, #e52a5a, #ff585f);
+}
+
+.bankapp__operation-title {
+  margin-bottom: 1.5rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.bankapp__form {
+  display: grid;
+  grid-template-columns: 2.5fr 2.5fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 0.4rem 1rem;
+}
+
+.bankapp__form--loan {
+  grid-template-columns: 2.5fr 1fr 2.5fr;
+}
+
+.bankapp__form-label--loan {
+  grid-row: 2;
+}
+
+.bankapp__input {
+  width: 100%;
+  border: none;
+  border-radius: 0.7rem;
+  background-color: rgba(255, 255, 255, 0.45);
+  padding: 0.4rem 1rem;
+  font: inherit;
+  font-size: 1.5rem;
+  color: #333;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.bankapp__input:focus {
+  background-color: rgba(255, 255, 255, 0.65);
+}
+
+.bankapp__form-label {
+  font-size: 1.3rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.bankapp__form-btn {
+  border: none;
+  border-radius: 0.7rem;
+  background-color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.bankapp__form-btn:focus {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.bankapp__message {
+  min-height: 1.8rem;
+  margin-top: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.bankapp__message--visible {
+  opacity: 1;
+}
+
+.bankapp__message--error {
+  color: #7c1f1f;
+}
+
+.bankapp__summary {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.bankapp__summary-label {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #444;
+  text-transform: uppercase;
+}
+
+.bankapp__summary-value {
+  margin-right: 1.7rem;
+  font-size: 2.2rem;
+}
+
+.bankapp__summary-value--in,
+.bankapp__summary-value--interest {
+  color: #66c873;
+}
+
+.bankapp__summary-value--out {
+  color: #f5465d;
+}
+
+.bankapp__sort {
+  margin-left: auto;
+  border: none;
+  background: none;
+  font: inherit;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #444;
+  cursor: pointer;
+}
+
+.bankapp__timer {
+  margin-left: 1.5rem;
+  font-size: 1.25rem;
+  text-align: right;
+}
+
+.bankapp__timer-value {
+  font-weight: 600;
+  color: #444;
 }
 
 /* FEATURES */
@@ -715,6 +1057,12 @@ h4 {
     margin-left: 0;
   }
 
+  .client-access {
+    align-items: center;
+    flex-basis: 100%;
+    min-width: 0;
+  }
+
   .header {
     height: auto;
     min-height: 100vh;
@@ -750,6 +1098,31 @@ h4 {
   .features__feature {
     width: 100%;
     padding: 0 2rem;
+  }
+
+  .bankapp__layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .bankapp__movements {
+    grid-row: auto;
+    max-height: 45rem;
+  }
+
+  .bankapp__summary {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .bankapp__sort {
+    margin-left: 0;
+  }
+
+  .bankapp__timer {
+    flex-basis: 100%;
+    margin-left: 0;
+    text-align: left;
   }
 
   .operations {
@@ -826,6 +1199,19 @@ h4 {
     padding: 0.6rem 1.6rem;
   }
 
+  .client-login {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .client-login__input {
+    width: 10.5rem;
+  }
+
+  .client-login__message {
+    text-align: center;
+  }
+
   .header__title {
     row-gap: 2rem;
   }
@@ -840,6 +1226,37 @@ h4 {
 
   .features__feature {
     padding: 0;
+  }
+
+  .bankapp__balance {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .bankapp__balance-value {
+    font-size: 3.4rem;
+  }
+
+  .bankapp__movement-row {
+    flex-wrap: wrap;
+    gap: 0.8rem 1.2rem;
+    padding: 1.8rem 2rem;
+  }
+
+  .bankapp__movement-value {
+    flex-basis: 100%;
+    margin-left: 0;
+    text-align: right;
+  }
+
+  .bankapp__operation {
+    padding: 2.5rem;
+  }
+
+  .bankapp__summary-value {
+    margin-right: 1rem;
+    font-size: 1.9rem;
   }
 
   .operations {

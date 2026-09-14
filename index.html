@@ -42,6 +42,34 @@
             >
           </li>
         </ul>
+        <div class="client-access">
+          <form class="client-login" aria-label="Log in to online banking">
+            <input
+              class="client-login__input client-login__input--user"
+              type="text"
+              placeholder="user"
+              autocomplete="username"
+              aria-label="Username"
+            />
+            <input
+              class="client-login__input client-login__input--pin"
+              type="password"
+              placeholder="PIN"
+              maxlength="4"
+              inputmode="numeric"
+              autocomplete="current-password"
+              aria-label="PIN"
+            />
+            <button
+              class="client-login__btn"
+              type="submit"
+              aria-label="Log in"
+            >
+              &rarr;
+            </button>
+          </form>
+          <p class="client-login__message" aria-live="polite"></p>
+        </div>
       </nav>
 
       <div class="header__title">
@@ -479,6 +507,7 @@
     </div>
     <div class="overlay hidden"></div>
 
+    <script src="bank-data.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

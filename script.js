@@ -99,6 +99,46 @@ modalForm.addEventListener('submit', function (e) {
 });
 
 ///////////////////////////////////////
+// Client login
+
+const clientLoginForm = document.querySelector('.client-login');
+const clientLoginMessage = document.querySelector('.client-login__message');
+const inputLoginUsername = document.querySelector('.client-login__input--user');
+const inputLoginPin = document.querySelector('.client-login__input--pin');
+
+const setLoginMessage = function (message = '', isError = false) {
+  clientLoginMessage.textContent = message;
+  clientLoginMessage.classList.toggle('client-login__message--error', isError);
+};
+
+const flashMessage = window.bankistData.consumeFlashMessage();
+if (flashMessage) {
+  setLoginMessage(flashMessage.message, flashMessage.isError);
+}
+
+clientLoginForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const username = inputLoginUsername.value.trim().toLowerCase();
+  const pin = Number(inputLoginPin.value);
+  const accounts = window.bankistData.getAccounts();
+  const account = accounts.find(acc => acc.username === username);
+
+  inputLoginUsername.value = '';
+  inputLoginPin.value = '';
+  inputLoginPin.blur();
+
+  if (account?.pin !== pin) {
+    setLoginMessage('Invalid username or PIN', true);
+    return;
+  }
+
+  sessionStorage.setItem(window.bankistData.currentUserKey, account.username);
+  setLoginMessage('Opening your dashboard...');
+  window.location.assign('app.html');
+});
+
+///////////////////////////////////////
 // Smooth scrolling
 
 const btnScrollTo = document.querySelector('.btn--scroll-to');
